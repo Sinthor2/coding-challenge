@@ -1,3 +1,100 @@
-<p>
-  data-display works!
-</p>
+<div class="container">
+  <mat-card class="mb-2">
+    <div class="row">
+      <div class="col-12 pb-2">
+        <h4>Filter</h4>
+      </div>
+      <div class="col-auto">
+        <mat-form-field>
+          <input matInput [(ngModel)]="startDate" [matDatepicker]="startDatePicker" placeholder="Start Date"
+            (dateChange)="startDateChanged($event)">
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-auto">
+        <mat-form-field>
+          <input matInput [value]="endDate" [matDatepicker]="endDatePicker" placeholder="End Date" (dateChange)="endDateChanged($event)">
+          <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-auto reset-filter-col">
+        <button mat-button matTooltip="Reset Filters" matTooltipPosition="right" (click)="resetFilters()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>
+      <!--display these headers only on a screen larger than lg-->
+      <div class="row d-none d-lg-flex" matSort (matSortChange)="sortData($event)">
+        <div class="col-2" mat-sort-header="city">
+          City
+        </div>
+        <div class="col-2" mat-sort-header="start_date">
+          Start Date
+        </div>
+        <div class="col-2" mat-sort-header="end_date">
+          End Date
+        </div>
+        <div class="col-2" mat-sort-header="price">
+          Price
+        </div>
+        <div class="col-2" mat-sort-header="status">
+          Status
+        </div>
+        <div class="col-2" mat-sort-header="color">
+          Color
+        </div>
+      </div>
+    </mat-card-title>
+    <mat-card-content>
+      <div class="row pt-2 pb-2" *ngFor="let dataset of filteredData">
+        <!--show this header if the screen is smaller than lg-->
+        <div class="d-lg-none col-6">
+          <span class="mobile-header">City</span>
+        </div>
+        <div class="col-6 col-lg-2">
+          {{dataset.city}}
+        </div>
+        <!--show this header if the screen is smaller than lg-->
+        <div class="d-lg-none col-6">
+          <span class="mobile-header">Start Date</span>
+        </div>
+        <div class="col-6 col-lg-2">
+          {{dataset.start_date}}
+        </div>
+        <!--show this header if the screen is smaller than lg-->
+        <div class="d-lg-none col-6">
+          <span class="mobile-header">End Date</span>
+        </div>
+        <div class="col-6 col-lg-2">
+          {{dataset.end_date}}
+        </div>
+        <!--show this header if the screen is smaller than lg-->
+        <div class="d-lg-none col-6">
+          <span class="mobile-header">Price</span>
+        </div>
+        <div class="col-6 col-lg-2">
+          {{dataset.price}}
+        </div>
+        <!--show this header if the screen is smaller than lg-->
+        <div class="d-lg-none col-6">
+          <span class="mobile-header">Status</span>
+        </div>
+        <div class="col-6 col-lg-2">
+          {{dataset.status}}
+        </div>
+        <!--show this header if the screen is smaller than lg-->
+        <div class="d-lg-none col-6">
+          <span class="mobile-header">Color</span>
+        </div>
+        <div class="col-6 col-lg-2" [style.backgroundColor]="dataset.color">
+          {{dataset.color}}
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
