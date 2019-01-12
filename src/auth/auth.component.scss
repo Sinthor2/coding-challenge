@@ -1,0 +1,13 @@
+.container-fluid {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  .register-card {
+    height: 500px;
+    width: 350px;
+    align-self: center;
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}
