@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -12,13 +13,21 @@ export class AuthComponent implements OnInit {
     password: '',
     password_confirm: ''
   };
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-    console.log("submit");
+  public onSubmit(form: NgForm): void {
+    if (form.status === "VALID") {
+      this.navigateToApp();
+    }
   }
-
+  public skipRegistration(): void {
+    this.navigateToApp();
+  }
+  private navigateToApp(): void {
+    localStorage.setItem('auth', "true");
+    this.router.navigate(["/app"]); this.router.navigate(["/app"]);
+  }
 }

@@ -1,13 +1,32 @@
+@import "../shared/styles/theme.scss";
+
 .container-fluid {
   height: 100%;
   display: flex;
   justify-content: center;
+
   .register-card {
     height: 500px;
     width: 350px;
     align-self: center;
+
+    mat-card-title {
+      background-color: $primary;
+      margin: -16px;
+      margin-bottom: 0;
+      padding: 1rem;
+    }
     mat-form-field {
       width: 100%;
+    }
+    .skip-registration {
+      color: $primary;
+      text-decoration: none;
+      cursor: pointer;
+      &:hover {
+        text-decoration: none;
+        color: inherit;
+      }
     }
   }
 }
