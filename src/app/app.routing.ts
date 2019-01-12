@@ -1,11 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { DataDisplayComponent } from './components/data-display/data-display.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: AppComponent
+    component: AppComponent,
+    children: [
+      {
+        path: 'data',
+        component: DataDisplayComponent
+      },
+      {
+        path: '',
+        redirectTo: 'data',
+        pathMatch: 'full'
+      }
+    ]
   },
   {
     path: '**',
