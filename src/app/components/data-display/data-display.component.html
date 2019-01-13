@@ -1,10 +1,10 @@
 <div class="container">
   <mat-card class="mb-2">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-12 pb-2">
         <h4>Filter</h4>
       </div>
-      <div class="col-auto">
+      <div class="col-12 col-sm-5 col-md-auto text-center">
         <mat-form-field>
           <input matInput [(ngModel)]="startDate" [matDatepicker]="startDatePicker" placeholder="Start Date"
             (dateChange)="startDateChanged($event)">
@@ -12,15 +12,15 @@
           <mat-datepicker #startDatePicker></mat-datepicker>
         </mat-form-field>
       </div>
-      <div class="col-auto">
+      <div class="col-12 col-sm-5 col-md-auto text-center">
         <mat-form-field>
           <input matInput [value]="endDate" [matDatepicker]="endDatePicker" placeholder="End Date" (dateChange)="endDateChanged($event)">
           <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
           <mat-datepicker #endDatePicker></mat-datepicker>
         </mat-form-field>
       </div>
-      <div class="col-auto reset-filter-col">
-        <button mat-button matTooltip="Reset Filters" matTooltipPosition="right" (click)="resetFilters()">
+      <div class="col-12 col-sm-2 col-md-auto reset-filter-col text-center">
+        <button mat-button matTooltip="Reset Filters" (click)="resetFilters()">
           <i class="fas fa-times"></i>
         </button>
       </div>

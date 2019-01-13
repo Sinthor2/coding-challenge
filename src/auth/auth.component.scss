@@ -16,13 +16,16 @@
       margin-bottom: 0;
       padding: 1rem;
     }
+
     mat-form-field {
       width: 100%;
     }
+
     .skip-registration {
       color: $primary;
       text-decoration: none;
       cursor: pointer;
+
       &:hover {
         text-decoration: none;
         color: inherit;

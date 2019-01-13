@@ -13,6 +13,8 @@ export class DataDisplayComponent implements OnInit {
   public filteredData: Data[] = [];
   public startDate: Date;
   public endDate: Date;
+
+  // Importing a service into a component is not a good practice. Normally i would develop a "sandbox"-service which acts as a facade between components and services.
   constructor(private dataService: DataService) { }
 
   ngOnInit() {

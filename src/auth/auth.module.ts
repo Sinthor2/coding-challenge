@@ -19,7 +19,6 @@ import { PasswordsEqualDirective } from './directives/passwords-equal.directive'
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    
   ]
 })
 export class AuthModule { }
